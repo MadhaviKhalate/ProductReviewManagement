@@ -10,7 +10,7 @@ namespace ProductReview
             var table = getMethod.AddData();
 
             Console.WriteLine("1.View Data\n2.view Top 3 Data\n3.view Rating > 3\n4.Count ProductID" +
-                "\n5.View ProductId and Review\n6.Skip Top 5 Records\n\nEnter a Number");
+                "\n5.View ProductId and Review\n6.Skip Top 5 Records\n7.ProductId and Review Using Select LINQ\n\nEnter a Number");
             int userInput = Convert.ToInt32(Console.ReadLine());
 
             switch (userInput)
@@ -43,6 +43,11 @@ namespace ProductReview
                 case 6:
                     {
                         getMethod.SkipTop5Records(table);
+                        break;
+                    }
+                case 7:
+                    {
+                        getMethod.productIDAndReviewUsingSelectLINQ(table);
                         break;
                     }
                 default:

@@ -99,5 +99,14 @@ namespace ProductReview
                      item.Review + "\tIsLike: " + item.isLike);
             }
         }
+        public void productIDAndReviewUsingSelectLINQ(List<ProductModel> productReviews)
+        {
+            var result = productReviews.Select(reviews => new { ProductID = reviews.ProductId, Review = reviews.Review });
+            Console.WriteLine("Product ID\t|\tReview");
+            foreach (var item in result)
+            {
+                Console.WriteLine("\t" + item.ProductID + "\t|\t" + item.Review);
+            }
+        }
     }
 }
