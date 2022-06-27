@@ -49,5 +49,15 @@ namespace ProductReview
                     data.Review + "\tIsLike: " + data.isLike);
             }
         }
+        public void TopThreeData(List<ProductModel> products)
+        {
+            var data = (from item in products orderby item.Rating descending select item).Take(3);
+
+            foreach (var item in data)
+            {
+                Console.WriteLine("ProductID: " + item.ProductId + "\tUserID: " + item.UserId + "\tRating: " + item.Rating + "\tReview: " +
+                     item.Review + "\tIsLike: " + item.isLike);
+            }
+        }
     }
 }
