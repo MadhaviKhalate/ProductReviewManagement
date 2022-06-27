@@ -9,6 +9,8 @@ namespace ProductReview
 {
     public class ProductManagement
     {
+        public readonly DataTable table = new DataTable();
+
         public List<ProductModel> AddData()
         {
             List<ProductModel> table = new List<ProductModel>()
@@ -52,6 +54,18 @@ namespace ProductReview
         public void TopThreeData(List<ProductModel> products)
         {
             var data = (from item in products orderby item.Rating descending select item).Take(3);
+
+            foreach (var item in data)
+            {
+                Console.WriteLine("ProductID: " + item.ProductId + "\tUserID: " + item.UserId + "\tRating: " + item.Rating + "\tReview: " +
+                     item.Review + "\tIsLike: " + item.isLike);
+            }
+        }
+        public void RatingGreater3Records(List<ProductModel> products)
+        {
+            var data = from item in products
+                       where item.Rating > 3 && (item.ProductId == 11 || item.ProductId == 14 || item.ProductId == 17)
+                       select item;
 
             foreach (var item in data)
             {
