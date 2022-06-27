@@ -8,6 +8,8 @@ namespace ProductReview
         {
             ProductManagement getMethod = new ProductManagement();
             var table = getMethod.AddData();
+            var dataTable = getMethod.DataTable();
+
 
             Console.WriteLine("1.View Data\n2.view Top 3 Data\n3.view Rating > 3\n4.Count ProductID" +
                 "\n5.View ProductId and Review\n6.Skip Top 5 Records\n7.ProductId and Review Using Select LINQ\n\nEnter a Number");
@@ -48,6 +50,11 @@ namespace ProductReview
                 case 7:
                     {
                         getMethod.productIDAndReviewUsingSelectLINQ(table);
+                        break;
+                    }
+                case 8:
+                    {
+                        getMethod.ViewDataTable(dataTable);
                         break;
                     }
                 default:
