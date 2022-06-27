@@ -90,5 +90,14 @@ namespace ProductReview
                 Console.WriteLine("ProductID: " + item.ProductId + "\tReview: " + item.Review);
             }
         }
+        public void SkipTop5Records(List<ProductModel> products)
+        {
+            var data = products.OrderByDescending(x => (x.Rating)).Skip(5);
+            foreach (var item in data)
+            {
+                Console.WriteLine("ProductID: " + item.ProductId + "\tUserID: " + item.UserId + "\tRating: " + item.Rating + "\tReview: " +
+                     item.Review + "\tIsLike: " + item.isLike);
+            }
+        }
     }
 }
