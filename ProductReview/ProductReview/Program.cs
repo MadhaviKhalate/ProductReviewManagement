@@ -13,7 +13,8 @@ namespace ProductReview
 
             Console.WriteLine("1.View Data\n2.view Top 3 Data\n3.view Rating > 3\n4.Count ProductID" +
                 "\n5.View ProductId and Review\n6.Skip Top 5 Records\n7.ProductId and Review Using Select LINQ" +
-                "\n8.Create Data Table\n9.View True Records\n10.Average Rating\n11.Review Message\n\nEnter a Number");
+                "\n8.Create Data Table\n9.View True Records\n10.Average Rating\n11.Review Message" +
+                "\n12.Records For User ID 10\n\nEnter a Number");
             int userInput = Convert.ToInt32(Console.ReadLine());
 
             switch (userInput)
@@ -71,6 +72,11 @@ namespace ProductReview
                 case 11:
                     {
                         getMethod.ReviewMessage(dataTable);
+                        break;
+                    }
+                case 12:
+                    {
+                        getMethod.UserId10Records(dataTable);
                         break;
                     }
                 default:

@@ -176,8 +176,20 @@ namespace ProductReview
             var data = products.AsEnumerable().Where(x => (x.Field<string>("Review") == "Nice"));
             foreach (var item in data)
             {
-                Console.WriteLine("ProductID: " + item.Field<int>("ProductID") + "\tUserID: " + item.Field<int>("UserID") + "\tRating: " +
+                Console.WriteLine("ProductID: " + item.Field<int>("ProductId") + "\tUserID: " + item.Field<int>("UserId") + "\tRating: " +
                     item.Field<double>("Rating") + "\tReview: " + item.Field<string>("Review") + "\tIsLike: " + item.Field<bool>("IsLike"));
+            }
+        }
+        public void UserId10Records(DataTable products)
+        {
+            var result = from product in table.AsEnumerable()
+                         where product.Field<int>("UserId") == 10
+                         orderby product.Field<int>("Rating") descending
+                         select product;
+            Console.WriteLine("Records having review nice.");
+            foreach (var item in result)
+            {
+                Console.WriteLine("ProductID: " + item.Field<int>("ProductId") + "\tUserID: " + item.Field<int>("UserId") + "\tRating: " + item.Field<int>("Rating") + "\tReview: " + item.Field<string>("Review") + "\tisLike: " + item.Field<bool>("isLike"));
             }
         }
     }
