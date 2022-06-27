@@ -81,5 +81,14 @@ namespace ProductReview
                 Console.WriteLine("ProductID: " + item.ProductId + " has Count of: " + item.count);
             }
         }
+        public void ReviewAndProductId(List<ProductModel> products)
+        {
+            var data = products.Select(x => (x.ProductId, x.Review));
+
+            foreach (var item in data)
+            {
+                Console.WriteLine("ProductID: " + item.ProductId + "\tReview: " + item.Review);
+            }
+        }
     }
 }
