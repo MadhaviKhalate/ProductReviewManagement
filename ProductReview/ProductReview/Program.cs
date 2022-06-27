@@ -13,7 +13,7 @@ namespace ProductReview
 
             Console.WriteLine("1.View Data\n2.view Top 3 Data\n3.view Rating > 3\n4.Count ProductID" +
                 "\n5.View ProductId and Review\n6.Skip Top 5 Records\n7.ProductId and Review Using Select LINQ" +
-                "\n8.Create Data Table\n9.View True Records\n\nEnter a Number");
+                "\n8.Create Data Table\n9.View True Records\n10.Average Rating\n\nEnter a Number");
             int userInput = Convert.ToInt32(Console.ReadLine());
 
             switch (userInput)
@@ -61,6 +61,11 @@ namespace ProductReview
                 case 9:
                     {
                         getMethod.IsLikeTrueRecords(dataTable);
+                        break;
+                    }
+                case 10:
+                    {
+                        getMethod.AverageRating(dataTable);
                         break;
                     }
                 default:
