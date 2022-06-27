@@ -73,5 +73,13 @@ namespace ProductReview
                      item.Review + "\tIsLike: " + item.isLike);
             }
         }
+        public void CountRecords(List<ProductModel> products)
+        {
+            var data = products.GroupBy(x => (x.ProductId)).Select(x => new { ProductId = x.Key, count = x.Count() });
+            foreach (var item in data)
+            {
+                Console.WriteLine("ProductID: " + item.ProductId + " has Count of: " + item.count);
+            }
+        }
     }
 }
